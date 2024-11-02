@@ -24,7 +24,6 @@ def count_calls():
     calls += 1
 
 def string_info(string):
-    global calls
     string_tuple = (len(string), string.upper(), string.lower())
     count_calls()
     return string_tuple
