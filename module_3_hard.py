@@ -2,7 +2,12 @@ def calculate_sum_and_length(data):
     total_sum = 0
     total_length = 0
 
-    if isinstance(data, list):
+    if isinstance(data, tuple):
+        for element in data:
+            sub_sum, sub_length = calculate_sum_and_length(element)
+            total_sum += sub_sum
+            total_length += sub_length
+    elif isinstance(data, list):
         for item in data:
             sub_sum, sub_length = calculate_sum_and_length(item)
             total_sum += sub_sum
@@ -20,7 +25,7 @@ def calculate_sum_and_length(data):
             sub_sum, sub_length = calculate_sum_and_length(key)
             total_sum += sub_sum
             total_length += sub_length
-    elif isinstance(data, tuple):
+    elif isinstance(data, set):
         for element in data:
             sub_sum, sub_length = calculate_sum_and_length(element)
             total_sum += sub_sum
