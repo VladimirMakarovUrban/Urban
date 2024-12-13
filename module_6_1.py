@@ -1,16 +1,16 @@
 class Animal:
-    alive = True
-    fed = False
 
-    def __init__(self, name):
+    def __init__(self, name, alive=True, fed=False):
         self.name = name
+        self.alive = alive
+        self.fed = fed
 
 
 class Plant:
-    edible = False
 
-    def __init__(self, name):
+    def __init__(self, name, edible=False):
         self.name = name
+        self.edible = edible
 
 
 class Mammal(Animal):
@@ -36,8 +36,6 @@ class Predator(Animal):
 class Flower(Plant):
     edible = False
 
-
-
 class Fruit(Plant):
     edible = True
 
@@ -50,6 +48,11 @@ p2 = Fruit('Заводной апельсин')
 print(a1.name)
 print(p1.name)
 
+print(a1.alive)
+print(a2.fed)
+
+a1.eat(p1)
+a2.eat(p2)
 print(a1.alive)
 print(a2.fed)
 
